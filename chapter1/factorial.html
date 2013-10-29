@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset = "utf-8">
+</head>
+<body>
+	<script>
+		function factorial(x){
+			return (x < 0)? undefined:(x == 0)? 1: factorial(x - 1) * x;
+
+		}
+		var x = prompt('x', '0');
+		var res = factorial(x);
+		res? alert(res): alert('x should be greater or equal to 0');
+	</script>
+
+</body>
+</html>
