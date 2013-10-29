@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+        <meta charset = "utf-8">
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+</head>
+<body>
+	<table border = '1' width = '100%'>
+		<tr>
+			<th>
+				<div id = 'explorer-cell'>
+					<h5 id = 'ff'>Explorer cell</h5>
+				</div>
+			</th>
+			<th>
+				<div id = 'code-cell'>
+					<h5>Code cell</h5>
+				</div>
+			</th>
+			<th>
+				<div id = 'execution-cell'>
+					<h5>Execution cell</h5>
+				</div>
+			</th>
+		</tr>
+	</table>
+	
+	<script type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery('#explorer-cell').click(function(){
+                    	alert('aa');
+			jQuery('#code-cell').load('1.html');                
+                }) 
+            });
+	</script>
+</body>
+</html>
+
