@@ -46,7 +46,7 @@
 				$.get(
 					href,
 					function(data) {
-						document.getElementById('code-textarea').value = data;
+						document.getElementById('code-cell').value = data;
 						$('#execution-cell').html(data);
 					}
 				);
