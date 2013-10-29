@@ -42,8 +42,14 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#lnk1').click(function(){
-				document.getElementById('code-textarea').value = 'aadf';
-				$('#execution-cell').load(this.getAttribute('hrf'));
+				var herf = this.getAttribute('hrf');				
+				$.get(
+					href,
+					function(data) {
+						document.getElementById('code-textarea').value = data;
+					}
+				);
+				$('#execution-cell').load(href);
 			});
 			$('#lnk2').click(function(){
 				$('#execution-cell').load(this.getAttribute('hrf'));
