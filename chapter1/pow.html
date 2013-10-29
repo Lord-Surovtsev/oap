@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset = "utf-8">
+
+	<script>
+		function pow(x, n) {
+			var res = 1
+			for (var i = 0; i < n; i++) {
+				res *= x;
+			}
+			return res;
+		}
+	</script>
+</head>
+<body>
+	<script>
+		var x = +prompt("x", '');
+		var n = +prompt("n", '');
+		if (n < 0) {
+			alert("'n' should be greater or equal to 0")
+		} else {
+			alert(pow(x, n))
+		}
+	</script>
+</body>
+</html>
