@@ -42,15 +42,13 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#lnk1').click(function(){
-				alert(this.getAttribute('hrf'));
+				document.getElementById('code-textarea').value = 'aadf';
 				$('#execution-cell').load(this.getAttribute('hrf'));
 			});
 			$('#lnk2').click(function(){
-				alert(this.getAttribute('hrf'));
 				$('#execution-cell').load(this.getAttribute('hrf'));
 				});
 			$('#lnk3').click(function(){
-				alert(this.getAttribute('hrf'));
 	//			$('#execution-cell').load(this.hrf);
 			});
 			/*
