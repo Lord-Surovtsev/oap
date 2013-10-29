@@ -40,21 +40,34 @@
 -->
 	
 	<script type="text/javascript">
+		function Process(item) {
+			$(item).click(function(){
+				var href = this.getAttribute('hrf');				
+				$.get(
+					href,
+					function(data) {
+						document.getElementById('code-textarea').value = data;
+						$('#execution-cell').html(data);
+					}
+				);
+			});
+		}			
 		$(document).ready(function(){
-			function Process(item) {
-				$(item).click(function(){
-					var href = this.getAttribute('hrf');				
-					$.get(
-						href,
-						function(data) {
-							document.getElementById('code-textarea').value = data;
-							$('#execution-cell').html(data);
-						}
-					);
-				});
-			}			
 			Process('#lnk1');
 			Process('#lnk2');
+			Process('#lnk3');
+			Process('#lnk4');
+			Process('#lnk5');
+			Process('#lnk6');
+			Process('#lnk7');
+			Process('#lnk8');
+			Process('#lnk9');
+			Process('#lnk10');
+			Process('#lnk11');
+			Process('#lnk12');
+			Process('#lnk13');
+			Process('#lnk14');
+			Process('#lnk15');
 		});	
 	</script>
 
