@@ -28,6 +28,9 @@
 	<script type="text/javascript">
             jQuery(document).ready(function(){
 		$('#explorer-cell').load('list.html');
+		$('#lnk').click(function(){
+			$('#execution-cell').load(this.hrf);
+		})
 		/*
                 jQuery('#explorer-cell').click(function(){
                     	alert('aa');
