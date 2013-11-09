@@ -50,13 +50,13 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('p').each(function() {
-				Process($(this).attr('id'));
+				Process($(this));
 			});
 		});
 
 		function Process(item) {
-			$(item).click(function(){
-				var href = this.getAttribute('hrf');				
+			item.click(function(){
+				var href = item.getAttribute('hrf');				
 				$.get(
 					href,
 					function(data) {
