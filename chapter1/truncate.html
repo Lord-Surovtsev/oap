@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset = "utf-8">
+</head>
+<body>
+	<script>
+		var str = prompt('enter sentence', '');
+		var maxLength = 20;
+		str = truncate(str, maxLength);
+		alert(str);		
+
+		function truncate(str, maxLength) {
+			if (str.length > maxLength) {
+				return str.substr(0, 20) + '...'
+			}
+			return str
+		}
+	</script>
+</body>
+</html>

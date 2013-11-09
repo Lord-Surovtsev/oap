@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset = "utf-8">
-<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+<script type='text/javascript' src='./jquery.js'></script>
 </head>
 <body>
 	<H2 align = "center">Суровцев Александр Сергеевич</H2>
@@ -34,7 +34,9 @@
 		<H3>Data structures</H2>
 			<H4>
 				<p id = 'lnk17' hrf = "./chapter1/ucFirst.html">ucFirst</p>
-				<p id = 'lnk18' hrf = "./chapter1/checkSpam.html">check spam</p>			
+				<p id = 'lnk18' hrf = "./chapter1/checkSpam.html">check spam</p>
+				<p id = 'lnk19' hrf = "./chapter1/truncate.html">truncate</p>			
+				
 			</H4>
 <!--
 	<H1></H1>
@@ -46,6 +48,12 @@
 -->
 	
 	<script type="text/javascript">
+		$(document).ready(function(){
+			$('p').each(function() {
+				Process($(this).attr('id'));
+			});
+		});
+
 		function Process(item) {
 			$(item).click(function(){
 				var href = this.getAttribute('hrf');				
@@ -57,27 +65,7 @@
 					}
 				);
 			});
-		}			
-		$(document).ready(function(){
-			Process('#lnk1');
-			Process('#lnk2');
-			Process('#lnk3');
-			Process('#lnk4');
-			Process('#lnk5');
-			Process('#lnk6');
-			Process('#lnk7');
-			Process('#lnk8');
-			Process('#lnk9');
-			Process('#lnk10');
-			Process('#lnk11');
-			Process('#lnk12');
-			Process('#lnk13');
-			Process('#lnk14');
-			Process('#lnk15');
-			Process('#lnk16');
-			Process('#lnk17');
-			Process('#lnk18');
-		});	
+		}
 	</script>
 
 </body>

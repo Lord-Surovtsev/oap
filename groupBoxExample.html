@@ -1,0 +1,75 @@
+﻿<html>
+<head>
+	<meta charset = 'utf-8'>
+	<script type = 'text/javascript' src = './jquery.js'></script>
+</head>
+<body>
+	<select id = 'city'>
+		<option>Воронеж</option>
+		<option>Москва</option>
+	</select>
+
+	<br>	
+	<select id = 'street'>
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+	</select>
+
+	<br>
+	<select id = 'building'>
+	</select>
+		
+	<script>
+		$(document).ready(
+			function() {
+				$('#city').change(
+					function() {
+						onCityChange();
+					}
+				);
+		
+				$('#street').change(
+					function() {
+						onStreetChange();
+					}
+				);
+
+				$('#building').change(
+					function() {
+						onBuildingChange();
+					}
+				);
+			}
+		);
+	
+		function onCityChange() {
+			alert('onCityChange is called');
+			var city = $('#city').val();
+			$('#street').append('<option>My option</option>');			
+		}
+		
+		function onStreetChange() {
+			alert('onStreetChange is called');
+		}
+		
+		function onBuildingChange() {
+			alert('onCityChange is called');
+		}
+	</script>
+	
+	<!--
+	<select id="yourid">
+		<option value="Value 1">Text 1</option>
+		<option value="Value 2">Text 2</option>
+	</select>
+	
+	<script>
+		$('#yourid').change(function() {
+			alert('The option with value ' + $(this).val() + ' and text ' + $(this).text() + ' was selected.');
+		});
+	</script>
+	--->
+	
+</body>
+</html>
