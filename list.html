@@ -56,7 +56,7 @@
 
 		function Process(item) {
 			item.click(function(){
-				var href = item.getAttribute('hrf');				
+				var href = item.attr('hrf');				
 				$.get(
 					href,
 					function(data) {
