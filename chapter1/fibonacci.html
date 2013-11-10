@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset = "utf-8">
+</head>
+<body>
+	<script>
+		var sqrt5 = Math.sqrt(5);
+		
+		var number = +prompt('please enter number of fiabonacci seauence', '');
+		alert(bene(number));
+		function bene(n) {
+			return Math.round(Math.pow((1 + sqrt5) / 2, n) / sqrt5);
+		}
+	</script>
+</body>
+</html>

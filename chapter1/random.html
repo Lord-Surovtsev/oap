@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset = "utf-8">
+</head>
+<body>
+	<script>
+		var min = +prompt("enter min for random", "");
+		var max = +prompt("enter max for random", "");
+		alert(random(min, max));
+
+		function random(min, max) {
+			return min + (max - min) * Math.random();
+		}
+	</script>
+</body>
+</html>
