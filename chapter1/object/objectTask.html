@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<script  src = './scripts/toSource.js'></script>
+</head>
+<body>
+	<script>
+		var user = new Object();
+		alert(toSource(user));
+		
+		user.name = 'Вася';
+		alert(toSource(user));
+		
+		user['surname'] = 'Петров';
+		alert(toSource(user));
+		
+		user.name = 'Сергей';
+		alert(toSource(user));
+
+		delete user.name;
+		alert(toSource(user));;
+		
+	</script>
+</body>
+</html>
