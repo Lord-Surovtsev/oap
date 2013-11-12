@@ -21,8 +21,33 @@
 	</select>
 		
 	<script>
-		$(document).ready(
+	
+	var houses = {
+		'Воронеж': {
+			'Университетская площадь': [
+				1,
+				'1а',
+				'1б'
+			],
+			'Сталинский проспект': [
+				2,
+				7
+			]
+		},
+		'Москва': {
+			'Лубянская площадь': [
+				123,
+				3
+			],
+			'Петровка': [
+				38
+			]
+		}
+	};
+
+	$(document).ready(
 			function() {
+				fillCity();
 				$('#city').change(
 					function() {
 						onCityChange();
@@ -44,18 +69,57 @@
 		);
 	
 		function onCityChange() {
-			alert('onCityChange is called');
-			var city = $('#city').val();
-			$('#street').append('<option>My option</option>');			
+			fillStreet();
 		}
 		
 		function onStreetChange() {
-			alert('onStreetChange is called');
+			fillBuilding();
 		}
 		
 		function onBuildingChange() {
 			alert('onCityChange is called');
 		}
+
+		function fillCity() {
+			emptyCity();
+			for (key in houses) {
+				$('#city').append('<option>' + key + '</option>');
+			}
+			fillStreet();
+		}
+		
+		function fillStreet() {
+			emptyStreet();
+			var city = $('#city').val();
+			var streets = houses[city];
+			for (key in streets) {
+				$('#street').append('<option>' + key + '</option>');
+			}
+			fillBuilding();
+		}
+
+		function fillBuilding() {
+			emptyBuilding();
+			var city = $('#city').val();
+			var street = $('#street');
+			var buildings = houses[city][street];
+			for (key in buildings) {
+				$('#buildings').append('<option>' + key + '</option>');
+			}
+		}
+
+		function emptyCity() {
+			$("#city").empty();
+		}
+
+		function emptyStreet() {
+			$('#street').empty();
+		}
+
+		function emptyBuilding() {
+			$('#building').empty();
+		}
+	
 	</script>
 	
 	<!--
