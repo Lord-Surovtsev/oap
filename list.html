@@ -72,8 +72,7 @@
 				$.get(
 					href,
 					function(data) {
-						//document.getElementById('code-textarea').value = data;
-						$('#code-cell').text(data);
+						$('#code-textarea').value = data;
 						$('#execution-cell').html(data);
 					}
 				);
