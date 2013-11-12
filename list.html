@@ -72,7 +72,7 @@
 				$.get(
 					href,
 					function(data) {
-						$('#code-textarea').value = data;
+						$('#code-textarea').value(data);
 						$('#execution-cell').html(data);
 					}
 				);
