@@ -101,10 +101,10 @@
 		function fillBuilding() {
 			emptyBuilding();
 			var city = $('#city').val();
-			var street = $('#street');
+			var street = $('#street').val();
 			var buildings = houses[city][street];
 			for (key in buildings) {
-				$('#buildings').append('<option>' + key + '</option>');
+				$('#building').append('<option>' + buildings[key] + '</option>');
 			}
 		}
 
