@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset = "utf-8">
+</head>
+<body>
+	<script>
+		var calc = new Calculator();
+
+		calc.addMethod("*", function(a, b) { return a * b; });
+		calc.addMethod("/", function(a, b) { return a / b; });
+		calc.addMethod("**", function(a, b) { return Math.pow(a, b); });
+		
+		var result = calc.calculate("2 ** 3");
+		alert(result); // 8
+		
+		function Calculator() {
+			var methods = {
+				'+': function(a, b) {
+					return a + b;
+				},
+				'-': function(a, b) {
+					return a - b;
+				}
+			};
+
+			this.calculate = function(str) {
+				var split = str.split(' ')
+					, a = split[0]
+					, op = split[1]
+					, b = split[2];
+			
+				if (!methods[op] || !isNumeric(a) || !isNumeric(b)) {
+					return NaN;
+				}
+				return methods[op](+a, +b);
+			};
+
+			this.addMethod = function(name, fn) {
+				methods[name] = fn;
+			};
+		}
+
+		function isNumeric(n) {
+			return !isNaN(parseFloat(n)) && isFinite(n);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset = "utf-8">
+</head>
+<body>
+	<script>
+		var c1 = makeCounter();
+		var c2 = makeCounter();
+
+		alert(c1());
+		alert(c2());
+		alert(c1());
+
+		function makeCounter() {
+			return function counter() {
+				if (!counter.currentCount) {
+					counter.currentCount = 0;
+				}
+				return ++counter.currentCount;
+			};
+		}
+	</script>
+</body>
+</html>

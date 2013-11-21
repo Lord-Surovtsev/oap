@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset = "utf-8">
+</head>
+<body>
+	<script>
+		var calculator = {
+			a: undefined,
+			b: undefined,
+
+			readValues: function() {
+				a = +prompt('a', '');
+				b = +prompt('b', '');
+			},
+
+			sum : function() {
+				return a + b;
+			},
+
+			mul: function() {
+				return a * b;
+			}
+		};
+
+		calculator.readValues();
+		alert(calculator.sum());
+		alert(calculator.mul());
+	</script>
+</body>
+</html>
