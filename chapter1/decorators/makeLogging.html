@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset = "utf-8">
+</head>
+<body>
+    <script>
+
+        function work(a, b) {
+            alert(a + b);
+        }
+        var log = [];
+
+        work = makeLogging(work, log);
+
+        work(1, 2);
+        work(5, 4);
+
+        for (var i = 0; i < log.length; i++) {
+            alert('Log:' + [].join.call(log[i]));
+        }
+
+        function makeLogging(f, log) {
+            function wrapper() {
+                log.push(arguments);
+                return f.apply(this, arguments);
+            }
+            return wrapper;
+        }
+    </script>
+</body>
+</html>

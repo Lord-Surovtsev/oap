@@ -10,7 +10,7 @@
 	
 	<H1>Part 1. Learn JavaScript</H1>
 		<H2>Basic Information</H2>
-			<H4>				
+			<H4>
 				<p id = 'lnk1' hrf = "./chapter1/helloWorld.html">Hello World</p>
 				<p id = 'lnk2' hrf = "./chapter1/I'mJavaScript.html">I'm JavaScript</p>
 			</H4>
@@ -72,12 +72,22 @@
 				<p hrf = "./chapter1/arguments-pseudoarray/sum.html">sum</p>
 				<!-- arguments-named -->
 			</H4>
+            <H4>
 				<H2>Objects more</H2>
 				<!-- object-methods -->
 				<p hrf = "./chapter1/object-methods/calculator.html">calculator</p>
 				<p hrf = "./chapter1/object-methods/ladder.html">ladder</p>
 				<p hrf = "./chapter1/object-methods/powerCalculator.html">power calculator</p>
 				<!-- this -->
+                <p hrf = "./chapter1/this/apply.html">call apply</p>
+                <!-- decorators -->
+                <p hrf = "./chapter1/decorators/makeLogging.html">makeLogging</p>
+                <p hrf = "./chapter1/decorators/makeCaching.html">makeCaching</p>
+            </H4>
+            <H4>
+                <H2>Types</H2>
+                <!-- object-convesion -->
+            </H4>
 			<H4>
 				<H2>Lab tasks</H2>
 				<p hrf = "./groupBoxExample.html">groupBox example</p>
@@ -101,7 +111,7 @@
 
 		function Process(item) {
 			item.click(function(){
-				var href = item.attr('hrf');				
+				var href = item.attr('hrf');
 				$.get(
 					href,
 					function(data) {
