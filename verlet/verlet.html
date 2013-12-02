@@ -46,20 +46,21 @@
 			function updateScene() {
 				//console.log("++");
 				//return;
-				var t = points.length;
 				var i = 0;
-				//renders
-				points[0].setPos(0, 0);
-				points[COLS - 1].setPos(COLS * 10 + 20, 0);
-				for (i = 0; i < t; i++) {
-					points[i].y += 0.1;
-					points[i].refresh();
-				}
-
-				t = sticks.length;
+    			//renders
+                var t = sticks.length;
 				for (i = 0; i < t; i++) {
 					sticks[i].contract();
 				}
+
+				points[0].setPos(0, 0);
+    			points[COLS - 1].setPos(COLS * 10 + 20, 0);
+                t = points.length
+				for (i = 0; i < t; i++) {
+					points[i].y += 0.01;
+					points[i].refresh();
+				}
+
 				drawScene();
 			}
 

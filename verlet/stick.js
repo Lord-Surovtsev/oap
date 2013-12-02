@@ -17,8 +17,8 @@ function Stick(pointA, pointB) {
 			dY = b.y - a.y;
 			h = Math.sqrt(dX * dX + dY * dY);
 			diff = hypotenuse - h;
-			offX = (diff * dX / h) / 2;
-			offY = (diff * dY / h) / 2;
+			offX = (diff * dX / h) / 2.1;
+			offY = (diff * dY / h) / 2.1;
 	
 			a.x -= offX;
 			a.y -= offY;
