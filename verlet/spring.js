@@ -1,7 +1,7 @@
-function Stick(pointA, pointB) {
+function Spring(particleA, particleB) {
 	with (this) {
-		this.a = pointA;
-		this.b = pointB;
+		this.a = particleA;
+		this.b = particleB;
 		this.dX = a.x - b.x;
 		this.dY = a.y - b.y;
 		this.hypotenuse = Math.sqrt(dX * dX + dY * dY);
@@ -17,13 +17,13 @@ function Stick(pointA, pointB) {
 			dY = b.y - a.y;
 			h = Math.sqrt(dX * dX + dY * dY);
 			diff = hypotenuse - h;
-			offX = (diff * dX / h) / 2.1;
-			offY = (diff * dY / h) / 2.1;
+			offX = (diff * dX / h) / 2;
+			offY = (diff * dY / h) / 2;
 	
-			a.x -= offX;
-			a.y -= offY;
-			b.x += offX;
-			b.y += offY;
+			a.fX-= offX;
+			a.fY -= offY;
+			b.fX += offX;
+			b.fY += offY;
 		}
 	}
 }

@@ -3,8 +3,8 @@
 	<head>
 		<title>Verlet 2D simulation</title>
 		<meta charset = "utf-8" />
-		<script src = "./point.js"></script>
-		<script src = "./stick.js"></script>
+		<script src = "./particle.js"></script>
+		<script src = "./spring.js"></script>
 	</head>
 	<body>
 		<canvas height = "1000" width = "480" id = "canvas">Update Browser</canvas>
@@ -22,22 +22,24 @@
 			var diffX = 20;
 			var diffY = 20;
 
-			var points = new Array(COLS * ROWS)
-			  , sticks = new Array((COLS -1) * ROWS + COLS * (ROWS -1));
+			var particles = new Array(COLS * ROWS)
+			  , springs = new Array((COLS -1) * ROWS + COLS * (ROWS -1));
 			
 			var i = 0;
 			for (var r = 0; r < ROWS; r++) {
 				for (var c = 0; c < COLS; c++) {
-					points[r * COLS + c] = new Point(c * 10, r * 10);
+					particles[r * COLS + c] = new Particle(c * 10, r * 10);
 					if (c > 0) {
-						sticks[i++] = new Stick(points[r * COLS + c - 1], points[r * COLS + c]);
+						springs[i++] = new Spring(particles[r * COLS + c - 1], particles[r * COLS + c]);
 					}
 					if (r > 0) {
-						sticks[i++] = new Stick(points[r * COLS + c], points[(r - 1)* COLS + c]);
+						springs[i++] = new Spring(particles[r * COLS + c], particles[(r - 1)* COLS + c]);
 					}
 				}
 			}
 		
+			particles[0].st = 1;
+			particles[COLS - 1].st = 1;
 
 			var date = new Date();
 			//var timer = setInterval(function() { console.log("++"); }, 1000 / 24);
@@ -47,18 +49,18 @@
 				//console.log("++");
 				//return;
 				var i = 0;
-    			//renders
-                var t = sticks.length;
+    			 	//renders
+               			 var t = springs.length;
 				for (i = 0; i < t; i++) {
-					sticks[i].contract();
+					springs[i].contract();
 				}
 
-				points[0].setPos(0, 0);
-    			points[COLS - 1].setPos(COLS * 10 + 20, 0);
-                t = points.length
+//				particles[0].setPos(0, 0);
+//    				particles[COLS - 1].setPos(COLS * 10 + 20, 0);
+                		t = particles.length
 				for (i = 0; i < t; i++) {
-					points[i].y += 0.01;
-					points[i].refresh();
+					particles[i].fY += 0.01;
+					particles[i].refresh();
 				}
 
 				drawScene();
@@ -67,10 +69,10 @@
 			function drawScene() {
 				clearContext();
 				ctx.beginPath();
-				for (i = 0; i < sticks.length; i++) {
-					var stick = sticks[i];
-					ctx.moveTo(stick.a.x + diffX, stick.a.y + diffY);
-					ctx.lineTo(stick.b.x + diffX, stick.b.y + diffY);
+				for (i = 0; i < springs.length; i++) {
+					var spring = springs[i];
+					ctx.moveTo(spring.a.x + diffX, spring.a.y + diffY);
+					ctx.lineTo(spring.b.x + diffX, spring.b.y + diffY);
 				}
 				ctx.stroke();
 			}
