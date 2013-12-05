@@ -23,8 +23,9 @@
 			var diffY = 20;
 
 			var particles = new Array(COLS * ROWS)
-			  , springs = new Array((COLS -1) * ROWS + COLS * (ROWS -1));
+			  , springs = new Array((COLS - 1) * ROWS + COLS * (ROWS - 1) + 2 * (COLS - 1) * (ROWS - 1));
 			
+			//alert("time and time again " + ((COLS - 1) * ROWS + COLS * (ROWS - 1) + 2 * (COLS - 1) * (ROWS - 1)));
 			var i = 0;
 			for (var r = 0; r < ROWS; r++) {
 				for (var c = 0; c < COLS; c++) {
@@ -35,11 +36,22 @@
 					if (r > 0) {
 						springs[i++] = new Spring(particles[r * COLS + c], particles[(r - 1)* COLS + c]);
 					}
+					if (c > 0 && r > 0)
+					{
+						springs[i++] = new Spring(particles[r * COLS + c], particles[(r - 1) * COLS + c - 1]);
+						springs[i++] = new Spring(particles[r * COLS + c -1] ,particles[(r - 1) * COLS + c]);
+					}
 				}
 			}
-		
+			//alert("actuall length " + springs.length);
 			particles[0].st = 1;
 			particles[COLS - 1].st = 1;
+			/*
+			for (var i = 0; i < ROWS; i++)
+			{
+				particles[i * COLS].st = 1;
+			}
+			*/
 
 			var date = new Date();
 			//var timer = setInterval(function() { console.log("++"); }, 1000 / 24);

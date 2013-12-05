@@ -17,10 +17,10 @@ function Spring(particleA, particleB) {
 			dY = b.y - a.y;
 			h = Math.sqrt(dX * dX + dY * dY);
 			diff = hypotenuse - h;
-			offX = (diff * dX / h) / 2;
-			offY = (diff * dY / h) / 2;
+			offX = (diff * dX / h) * 0.1;
+			offY = (diff * dY / h) * 0.1;
 	
-			a.fX-= offX;
+			a.fX -= offX;
 			a.fY -= offY;
 			b.fX += offX;
 			b.fY += offY;
