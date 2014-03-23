@@ -18,7 +18,7 @@ function Particle(xPos, yPos, st) {
 	}
 	*/
 
-	this.refresh = function() {
+	this.inercia = function() {
 		if (this.st)
 		{
 			return;
